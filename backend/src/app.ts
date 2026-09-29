@@ -8,10 +8,10 @@ interface CitiesQuery {
 export function buildApp(cities: readonly City[], opts: FastifyServerOptions = {}) {
   const app = fastify(opts);
 
-  app.get('/health', async () => ({ status: 'ok' }));
+  app.get('/health', { logLevel: 'silent' }, async () => ({ status: 'ok' }));
 
   app.get<{ Querystring: CitiesQuery }>(
-    '/cities',
+    '/api/cities',
     {
       schema: {
         querystring: {

@@ -1,0 +1,23 @@
+services:
+  api:
+    build: ./backend
+    environment:
+      GEONAMES_USERNAME: ${GEONAMES_USERNAME:-hsample}
+      DATA_SOURCE: ${DATA_SOURCE:-remote}
+
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3000/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 15s
+    restart: unless-stopped
+
+  web:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
