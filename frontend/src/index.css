@@ -1,0 +1,57 @@
+:root {
+  --ink: #1d2b36;
+  --muted: #5f7180;
+  --sea: #2f6f8f;
+  --paper: #eef3f6;
+  font-family: system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+body {
+  margin: 0;
+}
+
+.app {
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+h1,
+.letter,
+.count strong {
+  font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+}
+
+.letter {
+  display: block;
+  width: 5rem;
+  margin: 1rem 0 2rem;
+  font-size: 4rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: white;
+  border: 2px solid var(--muted);
+  border-radius: 8px;
+}
+
+.letter:focus {
+  outline: 3px solid var(--sea);
+  outline-offset: 2px;
+}
+
+.count strong {
+  font-size: 2rem;
+  color: var(--sea);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+ul {
+  padding-left: 1.25rem;
+  line-height: 1.8;
+}
